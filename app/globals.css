@@ -102,3 +102,15 @@ img {
   border-right: solid 2px #ccc;
 }
 
+/* Add these to your existing CSS */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+/* Add these custom styles */
+.museum-label {
+  font-family: 'Lato', sans-serif;
+}
+
+.museum-label h2 {
+  font-family: 'Playfair Display', serif;
+}
+

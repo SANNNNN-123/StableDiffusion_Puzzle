@@ -107,7 +107,6 @@ export function PuzzleGame() {
       toast.success(
         <div className="text-center">
           <div className="text-xl font-bold mb-1">🎉 Congratulations! 🎉</div>
-          <div>Puzzle completed in {moves + 1} moves!</div>
         </div>,
         {
           duration: 1000,
@@ -131,8 +130,22 @@ export function PuzzleGame() {
     initializeTiles()
   }, [gridSize])
 
+  const [isClient, setIsClient] = useState(false)
+  
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  if (!isClient) {
+    return null
+  }
+
   return (
     <div className="flex flex-col items-center gap-6">
+      <h1 className="font-['Playfair_Display'] text-3xl mb-2 text-center">
+        Stable-Diffusion Puzzle
+      </h1>
+
       <div className="relative">
         <Frame>
           <div className="relative w-[300px] h-[300px] bg-gray-200 rounded shadow-inner overflow-hidden">
@@ -188,10 +201,10 @@ export function PuzzleGame() {
         </Button>
       </div>
 
-      {/* Museum Label */}
-      <div className="mt-1 max-w-[350px] p-3 bg-[#f5f5f5] border border-[#e0e0e0] shadow-sm">
+      {/* Updated Museum Label */}
+      <div className="mt-1 max-w-[350px] p-3 bg-white border border-[#e0e0e0] shadow-sm">
         <h2 className="font-['Playfair_Display'] text-xl mb-1 text-[#333]">
-          <a href="https://zuhairsan.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+          <a href="https://zuhairsan.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline hover:underline">
             Zuhair Aziz
           </a>
         </h2>
