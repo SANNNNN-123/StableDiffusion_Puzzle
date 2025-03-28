@@ -48,7 +48,7 @@ export function PuzzleGame() {
       case 3:
         return `/test${1 + newIndex}.png` // Rotates through test1-4
       case 4:
-        return `/test9.png`
+        return `/test${9 + (newIndex % 2)}.png` // Rotates between test9-10
       default:
         return '/test1.png'
     }
